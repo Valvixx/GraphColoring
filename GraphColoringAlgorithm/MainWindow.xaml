@@ -1,0 +1,36 @@
+﻿<Window x:Class="GraphColoring.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Graph Coloring" Height="600" Width="1000">
+    <Grid>
+        <!-- Левая часть: Матрица смежности -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Матрица смежности -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <TextBlock Text="Матрица смежности" FontWeight="Bold" FontSize="16" />
+            
+            <!-- Контейнер для таблицы -->
+            <Grid>
+                <!-- Ограничиваем высоту таблицы -->
+                <DataGrid Name="AdjacencyMatrixGrid" 
+                          AutoGenerateColumns="False" 
+                          CanUserAddRows="False"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                          MaxHeight="400" />
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Количество вершин:" VerticalAlignment="Center" />
+                <TextBox Name="VertexCountTextBox" Width="50" Margin="10,0,0,0" />
+            </StackPanel>
+            <Button Content="Сгенерировать граф" Name="GenerateGraphButton" Margin="0,10,0,0" Width="150" Height="40" HorizontalAlignment="Left" />
+        </StackPanel>
+
+        <!-- Правая часть: Граф -->
+        <Canvas Name="GraphCanvas" Grid.Column="1" Background="White" Margin="10" />
+    </Grid>
+</Window>
